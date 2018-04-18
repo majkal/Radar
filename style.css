@@ -1,0 +1,82 @@
+body{
+    background: url(https://images.unsplash.com/photo-1472235008642-bb3ce23994ac?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e3adf0e08574447e26d2c146f0fe9869&auto=format&fit=crop&w=750&q=80);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+body::after{
+    content: "";
+    width: 100wh;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    display: block;
+}
+.radar{
+    width: 10rem;
+    height: 10rem;
+    background: darkgreen;
+    background-image: radial-gradient(lightgreen transparent lightgreen);
+    border-radius: 50%;
+    border: solid 0.1rem lightgreen;
+    position: relative;
+    z-index: 2;
+    box-shadow: inset 0px 0px 50px;
+}
+.radar::before{
+    content: "";
+    height: 50%;
+    width: .1rem;
+    background-color: lightgreen;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: bottom;
+    animation: radar 4s linear infinite;
+    box-shadow: -5px 0 30px lightgreen;
+}
+@keyframes radar{
+    from {transform: rotate(0deg)}
+    to{transform: rotate(360deg)}
+}
+.radar::after{
+    content: "";
+    width: .4rem;
+    height: .4rem;
+    border-radius: 50%;
+    position: absolute;
+    right: 20%;
+    top: 50%;
+    background: red;
+    z-index: 2;
+    animation: dot 4s linear infinite;
+    transition: .2s;
+}
+@keyframes dot{
+    0%{opacity: 0}
+    24.9% {opacity: 0}
+    25%{opacity: 1;
+    transform: scale(1.5);
+    box-shadow: 0 0 7px red}
+    50%{opacity: .7;
+    transform: scale(1)}
+    75%{opacity: .4}
+    100%{opacity: 0}
+}
+h3{
+    color: lightgreen;
+    position: absolute;
+    bottom: 0;
+    font-family: verdana;
+    font-size: .8em;
+    font-weight: 100;
+}
